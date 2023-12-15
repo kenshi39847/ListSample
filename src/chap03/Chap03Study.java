@@ -157,7 +157,7 @@ AOPは共通処理等の「横断的関心事」を抽出し、プログラム�
 |Target     |Adviceが挿入される対象                                                                                        |
 
 
-Spring Frameworkが用意する中心的関心事に適用するAdviceには実行制御内容別に5種類ある
+Spring Frameworkが用意する中心的関心事に適用するAdviceには実行制御内容別に5種類ある。
 ○Advice5種類
 |Advice                |内容                                                                              |アノテーション |
 |Before Advice         |中心的関心事が実行される前に横断的関心事を実行する                                |@Before        |
@@ -165,5 +165,27 @@ Spring Frameworkが用意する中心的関心事に適用するAdviceには実�
 |After Throwing Advice |中心的関心事で例外がスローされた後で横断的関心事を実行する                        |@AfterThrowing |
 |After Advice          |中心的関心事の実行後に横断的関心事を実行する（正常終了・例外終了の有無は問わない）|@After         |
 |Around Advice         |中心的関心事の呼び出し前後で横断的関心事を実行する                                |@Around        |
+
+
+自分でAdviceを作成する場合、パッケージ、クラス、メソッド等、Advice挿入対象を条件で指定できる。
+指定する条件方法には「Pointcut式」を使用する。Pointcut式は複数あるが、今回は「execution指示子」を使う。
+○execution指示子の構文
+execution(戻り値の型 パッケージ.クラス.メソッド(引数))
+
+
+Pointcut式はワイルドカードを利用することで、柔軟に適用範囲を指定できる。
+※ワイルドカードとは特殊文字の種類で、どんな対象文字、文字列にもマッチするもののこと
+○ワイルドカード
+|ワイルドカード|内容                                                                                                |
+|*             |任意の文字列を表し、パッケージを表す場合は任意のパッケージ1階層を、メソッドの引数では1つの引数を表す|
+|..            |パッケージを表す場合は0個以上のパッケージを、メソッドの引数を表す場合は0個以上の任意の引数を表す    |
+|+             |クラス名の後に記述し、クラスとそのサブクラスや実装クラスすべてを表す                                |
+例）
+1.DemoServiceクラスのメソッドにAdviceを適用する
+execution(*com.example.service.DemoService.*(..))
+2.DemoServiceクラスのselectで始まるメソッドにAdviceを適用する
+execution(*com.example.service.DemoService.select*(..))
+3.DemoServiceクラスの最初の引数がString型のメソッドにAdviceを適用する
+execution(*com.example.service.DemoService.*(String, ..)
 */
 
