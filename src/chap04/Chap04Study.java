@@ -37,4 +37,47 @@ PostgreSQLでは初期化時に「postgres」という名称のデータベー�
 2.→「Tables」を右クリックし「Create」→「Table」をクリックすると「Create-Table」画面が表示される
 3.「General」タブでの[Name]はテーブルの名前になる
 4.「Columns」タブでの[+]はカラムの作成、[Name]はカラム名になる
+
+
+データベースを操作するための言葉を「Structured Query Language(SQL)：ストラクチャード・クエリ・ランゲージ」といい、
+SQLはANSI（American National Standard Institute）やISO（国際標準化機構）で規格が標準化されているため、
+どのデータベースでもほぼ同じように操作可能である。
+さらに、SQLで永続的なデータを取り扱う4つの基本機能を「CRUD」といい、CRUDは、「作成（Create）」、「読み出し（Read）」、
+「更新（Update）」、「削除（Delete）」の頭文字をつなげた言葉である。
+○SQLでのCRUD
+|CRUD          |命令  |概要            |
+|作成(Create)  |INSERT|データを登録する|
+|読み出し(Read)|SELECT|データを参照する|
+|更新(Update)  |UPDATE|データを更新する|
+|削除(Delete)  |DELETE|データを削除する|
+○PostgreSQLでのCRUD構文
+|CRUD          |構文                                                                                                                 |
+|作成(Create)  |INSERT INTO テーブル名(列名, 列名, ...) VALUES(値, 値, ...);                                                         |
+|読み出し(Read)|SELECT 列名 FROM テーブル名;                                                                                         |
+|更新(Update)  |UPDATE テーブル名 SET 列名 = 値 WHERE 更新する行を特定する条件; (WHEREで条件を指定しない場合、すべてのレコードが対象)|
+|削除(Delete)  |DELETE FROM テーブル名 WHERE 削除する行を特定する条件; (WHEREで条件を指定しない場合、すべてのレコードが対象)         |
+
+
+○pgAdmin4でテーブルにデータを投入
+1.INSERTの実行
+「Tables」→「member」を選択し、メニューバーにて「Tools」→「Query Tool」を選択すると「Query Editor」画面が表示される。
+SQLで入力後、「➤」ボタンをクリックする。
+例）
+INSERT INTO member(name) VALUES('太郎');
+INSERT INTO member(name) VALUES('ジロウ');
+2.SELECTの実行
+「Tables」→「member」を選択し、メニューバーにて「Tools」→「Query Tool」を選択すると「Query Editor」画面が表示される。
+SQLで入力後、「➤」ボタンをクリックする。
+例）
+SELECT id, name FROM member;
+3.UPDATEの実行
+「Tables」→「member」を選択し、メニューバーにて「Tools」→「Query Tool」を選択すると「Query Editor」画面が表示される。
+SQLで入力後、「➤」ボタンをクリックする。
+例）
+UPDATE member SET name='JIROU' WHERE id=2;
+4.DELETEの実行
+「Tables」→「member」を選択し、メニューバーにて「Tools」→「Query Tool」を選択すると「Query Editor」画面が表示される。
+SQLで入力後、「➤」ボタンをクリックする。
+例）
+DELETE FROM member WHERE id=2;
 */
