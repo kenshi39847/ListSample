@@ -1,6 +1,23 @@
 package chap04;
 
 public class Chap04Study {
+	//idカラムに対応
+	private Integer id;
+	//nameカラムに対応
+	private String name;
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 
 }
 /*
@@ -80,4 +97,16 @@ UPDATE member SET name='JIROU' WHERE id=2;
 SQLで入力後、「➤」ボタンをクリックする。
 例）
 DELETE FROM member WHERE id=2;
+
+
+データベースのテーブルの1行に対応するクラス（データの入れ物となるクラス）を「Entity（エンティティ）」という。
+また、データベースへのデータベース操作を行うクラスを「Repository（リポジトリ）」という。
+リポジトリを作成する場合は、必ずインターフェースを定義したうえで実装する。
+エンティティには使用方法の特徴が3つある。
+1.クラス名
+対応するデータベースのテーブル名と同じにすることが多い
+2.データベースへ値の引き渡し
+データベースへ値を登録・更新する場合に、エンティティに値を入れて引き渡す
+3.データベースから値の取得
+データベースから値を取得した場合に、値をエンティティに入れて保持しておく。
 */
