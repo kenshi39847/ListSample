@@ -118,4 +118,25 @@ O/Rマッパーとは、アプリケーションで扱う「O:オブジェクト
 といった操作を自動的に行ってくれる。
 O/Rマッパーの1つに「Spring Date JDBC」というものがあり、特徴として、Spring Dateが提供するCrudRepositoryを継承することで、
 自動的にCRUDをサポートするメソッドを使用できる。
+
+
+○Spring Data JDBCのプログラムの作成
+1.プロジェクトの作成
+2.application.propertiesの設定
+「application.properties」とは、Spring Bootプロジェクトで環境の設定を行うためのファイルで、
+データベースpostgresに接続する設定を記述する。
+|項目                               |説明                                        |
+|Spring.datasource.driver-class-name|JDBCドライバのクラス名を指定                |
+|Spring.datasource.url              |データベースへの接続URLを設定               |
+|Spring.datasource.username         |データベースへ接続するためのユーザ名を設定  |
+|Spring.datasource.password         |データベースへ接続するためのパスワードを設定|
+3.エンティティの作成
+・@Data
+  クラスに付与することで、全フィールドに対してgetter/setterでアクセスすることができ、hashCode()、equals()、toString()を自動生成する
+・@NoArgsConstructor
+  クラスに付与することで、デフォルトコンストラクタを自動生成する
+・@AllArgsConstructor
+  クラスに付与することで、全フィールドに対する初期価値を引数にとるコンストラクタを自動生成する
+4.リポジトリの作成
+5.「使う側」クラスの作成
 */
