@@ -2,11 +2,6 @@ package chap05;
 
 public class Chap05Study {
 
-	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
-
-	}
-
 }
 
 /*
@@ -49,4 +44,17 @@ MVCモデルを使用することで、プログラムの独立性が高くな�
 4.処理結果をModelに設定し、ビュー名を返却する。
 5.それを受け、DispatcherServletがビュー名に対応するビューに対して画面表示処理を依頼する。
 6.クライアントがレスポンスを受け取り、ブラウザに画面が表示される。
+
+
+○@RequestMappingの属性
+|属性  |機能概要                                                |
+|value |・マッピングするにはURLを指定する                       |
+       |・最初の「/」は省略可能                                 |
+       |・URLパスのみを指定する場合は属性名「value」を省略可能  |
+       |・複数のURLパスを指定することもできる                   |
+|method|・「GET」や「POST」等のHTTPメソッドを指定する           |
+       |・「GET」を指定するには「RequestMethod.GET」を使用する  |
+       |・「POST」を指定するには「RequestMethod.POST」を使用する|
+       |・複数のHTTPメソッドを指定することもできる              |
+       |・クラスに@RequestMappingを付与する場合は指定しない     |
 */
