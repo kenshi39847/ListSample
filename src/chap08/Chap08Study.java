@@ -30,4 +30,11 @@ Hibernateフレームワークが提供するアノテーション「hibernate V
 相関項目チェックを作成する方法には以下の2種類がある。
 ・「Bean Validation」を利用する方法
 ・Spring Frameworkが提供する「Validator」インターフェースを実装する方法
+
+一般的にアプリケーションで表示するメッセージはプログラムとは別に管理する。
+主な理由として値をテンプレートから分離し、値そのものをプロパティファイルで管理することで、
+後々のメンテナンスが容易になるからである。
+Spring Bootを使用した開発では、
+バリデーションに対応するメッセージは「ValidationMessages.properties」、
+それ以外のメッセージは「messages.properties」に記述する。
 */
